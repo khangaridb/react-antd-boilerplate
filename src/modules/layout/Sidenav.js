@@ -1,8 +1,4 @@
-import {
-  ContainerOutlined,
-  HomeOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
+import { ContainerOutlined, HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
@@ -47,12 +43,7 @@ const menus = [
 
 const Sidenav = () => {
   const currentLocation = useLocation();
-  const parentMenuIndex = menus.findIndex(
-    (m) =>
-      m.subMenus &&
-      m.subMenus.length > 0 &&
-      currentLocation.pathname.includes(m.link)
-  );
+  const parentMenuIndex = menus.findIndex((m) => m.subMenus && m.subMenus.length > 0 && currentLocation.pathname.includes(m.link));
 
   return (
     <Sider width={200} className="site-layout-background">
