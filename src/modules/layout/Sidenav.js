@@ -51,7 +51,7 @@ const Sidenav = () => {
         mode="inline"
         style={{ height: '100%', borderRight: 0 }}
         defaultSelectedKeys={[currentLocation.pathname]}
-        defaultOpenKeys={parentMenuIndex !== -1 && [`${parentMenuIndex}`]}
+        defaultOpenKeys={parentMenuIndex !== -1 ? [`${parentMenuIndex}`] : []}
       >
         {menus.map((menu, index) => {
           if (!menu.subMenus || menu.subMenus.length === 0) {
