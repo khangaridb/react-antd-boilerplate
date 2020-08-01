@@ -1,14 +1,7 @@
-import { Button, Checkbox, Col, Form, Input, Layout, Row } from 'antd';
+import { EyeInvisibleOutlined, EyeTwoTone, LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Card, Checkbox, Form, Input, Layout, Row } from 'antd';
 import React from 'react';
 import authContext from '../../authContext';
-
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-};
-const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
-};
 
 const { Content } = Layout;
 
@@ -26,37 +19,49 @@ const Login = () => {
   };
 
   return (
-    <Layout style={{ height: '100%' }}>
-      <Content style={{ backgroundColor: 'white' }}>
+    <Layout style={{ height: '100%', background: 'grey' }}>
+      <Content>
         <Row justify="center" align="middle" style={{ height: '100%' }}>
-          <Col span={4}>
+          <Card style={{ background: 'white' }}>
             <Form
-              {...layout}
-              name="basic"
+              name="normal_login"
+              className="login-form"
               initialValues={{ remember: true }}
               onFinish={onFinish}
               onFinishFailed={onFinishFailed}
-              style={{ border: 1, borderColor: 'black' }}
+              style={{ padding: '20px 20px 0px 20px' }}
             >
-              <Form.Item label="Username" name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
-                <Input />
+              <Form.Item name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
+                <Input size="large" prefix={<UserOutlined />} placeholder="username" />
               </Form.Item>
 
-              <Form.Item label="Password" name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
-                <Input.Password />
+              <Form.Item name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
+                <Input.Password
+                  size="large"
+                  prefix={<LockOutlined />}
+                  placeholder="password"
+                  iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                />
               </Form.Item>
 
-              <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-                <Checkbox>Remember me</Checkbox>
+              <Form.Item>
+                <Form.Item name="remember" valuePropName="checked" noStyle>
+                  <Checkbox>Remember me</Checkbox>
+                </Form.Item>
+
+                <a className="login-form-forgot" href="#a">
+                  Forgot password
+                </a>
               </Form.Item>
 
-              <Form.Item {...tailLayout}>
-                <Button type="primary" htmlType="submit">
-                  Submit
+              <Form.Item>
+                <Button type="primary" htmlType="submit" className="login-form-button">
+                  Log in
                 </Button>
+                Or <a href="">register now!</a>
               </Form.Item>
             </Form>
-          </Col>
+          </Card>
         </Row>
       </Content>
     </Layout>

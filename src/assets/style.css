@@ -11,3 +11,16 @@ body {
 div#root {
   height: 100%; /* remove this line to see div.app is no more 100% height */
 }
+
+.login-form {
+  width: 500px;
+}
+.login-form-forgot {
+  float: right;
+}
+.ant-col-rtl .login-form-forgot {
+  float: left;
+}
+.login-form-button {
+  width: 100%;
+}
