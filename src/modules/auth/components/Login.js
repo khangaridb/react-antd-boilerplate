@@ -55,7 +55,7 @@ const Login = () => {
               </Form.Item>
 
               <Form.Item>
-                <Button type="primary" htmlType="submit" className="login-form-button">
+                <Button type="primary" htmlType="submit" onClick={() => onFinish()} className="login-form-button">
                   Log in
                 </Button>
                 Or <a href="">register now!</a>
